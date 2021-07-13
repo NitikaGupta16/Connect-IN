@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Meeting</title>
+
+        <meta content="width=device-width, initial-scale=1" name="viewport" /> 
+
+        <!--RESOURCES START-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel='stylesheet' href='resources/meeting_styling.css' type="text/css">
+        <link rel='stylesheet' href='resources/hover-min.css' type="text/css">
+        <script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <script src='resources/myscript.js'></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src='https://cdn.rawgit.com/yahoo/xss-filters/master/dist/xss-filters.js'></script>
+        <script src='resources/autolink.js'></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="resources/jquery.ui.touch-punch.js"></script>
+        <link rel='stylesheet' href='resources/magic.min.css' type="text/css">
+        <script src="https://kit.fontawesome.com/9c404fde73.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <link rel='stylesheet' href='resources/normalize.css' type="text/css">
+        <script src='resources/modernizr.custom.js'></script>
+        <script src='resources/jwt-decode.js'></script>
+        <!--RESOURCES END-->
+
+    <body>
+        
+        <!--Screen record button-->
+        <div class="container-fluid communication_pane" >
+            <div class="row">
+                <div class="video_calling_pane cold-md-12 col-12 main ">
+                    <button class="btn btn-light cl-effect-12  hvr-shrink record-download" id='record-download' title="Record Screen"></button>
+                    <div class="row" id='videos'>  
+                    </div>
+                        <div >
+                            <video class="local-video animate__zoomIn " id='local'volume='0' autoplay muted></video>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Chatting pane-->
+        <div class="chat_container">
+            <div class="bubble " id="bubble"><span class="badge badge-danger very-small font-weight-lighter" id='new-chat-notification'>0</span><span class='icon_inside_span fas fa-comment-dots'></span></div>
+            <div class="chat" id='chat'>
+                <div class="col-md-12 text-center h3 header1_name">
+                    Chatting
+                </div>
+                <div class="col-md-12" id="chat-messages">
+                    
+                </div>
+                <div class="col-md-12">
+                    <div class="is_typing">
+                        <div class="typing"></div>
+                        <div class="ticontainer" id='ticontainer'>
+                            <div class="tiblock">
+                                <div class="tidot"></div>
+                                <div class="tidot"></div>
+                                <div class="tidot"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <textarea id='chatting_input' class="form-control rounded-6 chat-box border-info" rows='1' placeholder="Text Message"></textarea>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Bottom navbar-->
+        <nav class="navbar fixed-bottom video_calling_pane" >
+           
+            <div class="">
+                <button class="  hvr-shrink btn btn-lg btn-dark  btn-circle fas fa-video  " id='hide-video' title="Hide the Video"></button>                   
+            </div>
+            <div class="">
+                <button class="  hvr-shrink  btn btn-lg btn-dark btn-circle fas fa-microphone " id='hide-microphone' title="Mute Microphone"></button>                   
+            </div>
+            <div class="">
+                <button class=" hvr-shrink  cl-effect-12 btn btn-lg btn-light btn-bigger-circle  " id='close_room' title="Close"></button>
+            </div>
+            <div class="">
+                <button class="  hvr-shrink btn btn-lg btn-dark btn-circle fas fa-tv " id='share-screen' title="Share Screen"></button>
+            </div>
+            <div class="">
+                <button class="  hvr-shrink btn btn-lg btn-dark btn-circle fas fa-share-alt " id='share-link' title="Share Link"></button>
+            </div>
+            
+        </nav>
+
+        
+     
+    </body>
+</html>

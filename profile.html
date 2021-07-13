@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Connect-IN</title>
+
+        <meta content="width=device-width, initial-scale=1" name="viewport" /> 
+
+        <!--RESOURCES START-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel='stylesheet' href='resources/profile_styling.css' type="text/css">
+        <link rel='stylesheet' href='resources/hover-min.css' type="text/css">
+        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <script src='resources/profile_script.js'></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src='https://cdn.rawgit.com/yahoo/xss-filters/master/dist/xss-filters.js'></script>
+        <script src='resources/autolink.js'></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel='stylesheet' href='resources/magic.min.css' type="text/css">
+        <script src="https://kit.fontawesome.com/9c404fde73.js" crossorigin="anonymous"></script>
+        <script src='resources/jwt-decode.js'></script>
+        <!--RESOURCES END-->
+
+    <body>
+        
+        <div class='wrapper'>
+            <!--NAVBAR-->
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                <div class="navbar-header">
+                    <span class="leaderboard__title--top"> </span>
+                </div>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#contact_list_form">Add Contact</button>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#group_name_form">Add Group</button>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#change_password">Change Password</button>
+                    <button type="button" class="btn btn-danger logout_button">Logout</button>
+                </div>
+            </nav>
+
+            
+            <!--CONTACT LIST-->
+            <div class="container-fluid contacts_bar_padding">
+                <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3 contacts_nav" id="contacts_nav">
+                    <main class="leaderboard__profiles" id = 'contact_list'></main>
+                    </div>
+
+                    <div class="col-sm-9 col-md-9 col-lg-9 chats_nav" id ='chats_nav'>
+                        <div class="chat_container">            
+                            <div class="chat" id='chat'>
+                                <div class="col-md-12" id="chat-messages">
+                                    
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="is_typing">
+                                        <div class="typing"></div>
+                                        <div class="ticontainer" id='ticontainer'>
+                                            <div class="tiblock">
+                                                <div class="tidot"></div>
+                                                <div class="tidot"></div>
+                                                <div class="tidot"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <textarea id='chatting_input'  class="form-control rounded-6 chat-box border-info" rows='1' placeholder="Text Message"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--MODAL FOR ADDING A CONTACT-->
+        <div class="modal fade" id="contact_list_form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Save Contact</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="contact_list_form" id="contact_list_form">
+                        <div class="form-label-group">
+                        <input name="contact_name" type="text" id="contact_name" class="form-control" placeholder="Contact Name" required autofocus>
+                        <label for="contact_name">Contact Name</label>
+                        </div>
+
+                        <div class="form-label-group">
+                        <input name="contact_email_address" type="email" id="contact_email_address" class="form-control" placeholder="Contact Email address" required>
+                        <label for="contact_email_address">Contact Email address</label>
+                        </div>
+
+                        <button class="btn btn-lg btn-dark btn-block text-uppercase" type="submit">Save Contact</button>     
+                    </form>
+                </div>
+                <div class="modal-footer">
+                  
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <!--MODAL FOR CREATING A GROUP-->
+        <div class="modal fade" id="group_name_form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Create Group</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="group_name_form" id="group_name_form">
+                        <div class="form-label-group">
+                            <input name="contact_name_1" type="text" id="contact_name_1" class="form-control" placeholder="Contact Name 1" required autofocus>
+                            <label for="contact_name_1">Contact Name</label>
+                        </div>
+                        <div class="form-label-group">
+                            <input name="contact_name_2" type="text" id="contact_name_2" class="form-control" placeholder="Contact Name 2" required autofocus>
+                            <label for="contact_name_2">Contact Name</label>
+                        </div>
+                        <div class="form-label-group">
+                            <input name="contact_name_3" type="text" id="contact_name_3" class="form-control" placeholder="Contact Name 3" required autofocus>
+                            <label for="contact_name_3">Contact Name</label>
+                        </div>
+                        <button class="btn btn-lg btn-dark btn-block text-uppercase" type="submit">Save Group</button>     
+                    </form>
+                </div>
+                <div class="modal-footer">
+                  
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <!--MODAL FOR CHANGING THE PASSWORD-->
+        <div class="modal fade" id="change_password" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Change password</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="change_password" id="change_password">
+
+                        <div class="form-label-group">
+                        <input name="password" type="password" id="password" class="form-control" placeholder="password" required>
+                        <label for="password">Enter New password</label>
+                        </div>
+
+                        <button class="btn btn-lg btn-dark btn-block text-uppercase" type="submit">Save New Password</button>     
+                    </form>
+                </div>
+                <div class="modal-footer">
+                  
+                </div>
+              </div>
+            </div>
+        </div>
+    
+    </body>
+</html>
