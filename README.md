@@ -16,6 +16,12 @@ Connect-IN is a multi functional web application where multiple users can connec
 - Thumbnails over the shared link i.e. rich links. 
 - Any number of participants can connect with each other over a video as well as chat conversation. 
 - Number of unread chat messages are displayed. 
+## Agile development menthodology used: 
+- Divided the work into 4 sprints 
+- During the first sprint, I achieved minimum required functionality i.e. video calling between 2 people.
+- During the second sprint, I added the login register page, added some more features and worked on UI.
+- During the third sprint, I extended my app to 'n' users such that they can easily connect and have a video call. 
+- During the forth sprint, I added the adopt feature.
 ## Steps to run it on local system: 
 - Make sure you had installed node.js, npm and mongoDB on your system 
 ```
