@@ -17,7 +17,10 @@ Connect-IN is a multi functional web application where multiple users can connec
 - Any number of participants can connect with each other over a video as well as chat conversation. 
 - Number of unread chat messages are displayed. 
 ## Steps to run it on local system: 
-- install node.js and mongoDB on your system 
+- Make sure you had installed node.js, npm and mongoDB on your system 
+```
+- npm i puppeteer
 - git clone https://github.com/NitikaGupta16/Connect-IN
 - npm start
 
+```
