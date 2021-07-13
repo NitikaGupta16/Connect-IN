@@ -4,7 +4,7 @@ Hosted here: https://connect-in-app.herokuapp.com/
 ## Overview
 </br>
 Connect-IN is a multi functional web application where multiple users can connect with each other via chat as well as video call. A user can add friends to his/her contact list and then can chat and even have a meet with his/her friends. Also, users can chat with each other before the meeting, during the meeting as well after the meeting.
-“Connect-IN name has been chosen in a way that will represent INDIA. Connect-IN can be pronounced as Connect INDIA.”
+Connect-IN name has been chosen in a way that will represent INDIA. Connect-IN can be pronounced as Connect INDIA.
 ## TechStack
 </br>
 - Frontend - HTML, CSS, Bootstrap, Javascript, JQuery, Ajax
