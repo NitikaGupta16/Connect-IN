@@ -19,8 +19,8 @@ Connect-IN is a multi functional web application where multiple users can connec
 ## Steps to run it on local system: 
 - Make sure you had installed node.js, npm and mongoDB on your system 
 ```
-- npm i puppeteer
 - git clone https://github.com/NitikaGupta16/Connect-IN
+- cd Connect-IN
+- npm i puppeteer (for richlinks)
 - npm start
-
 ```
