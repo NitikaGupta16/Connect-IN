@@ -1,7 +1,7 @@
 # Connect-IN
 [Application](https://connect-in-app.herokuapp.com/)
 </br>
-[Documentation](https://drive.google.com/file/d/11R-lEMHdlgm6MHpQesUu0N85FFFxSZuc/view?usp=sharing)
+[Documentation](https://drive.google.com/file/d/1oYGWcXQntmWF3BriLd7kpXOuMY7OxsPh/view?usp=sharing)
 </br>
 [Video Demo](https://drive.google.com/file/d/1bTc-8APgEzkIK_k_BxR1OCY4vFqbaX_Q/view?usp=sharing)
 </br>
